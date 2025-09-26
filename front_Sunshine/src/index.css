@@ -1,0 +1,210 @@
+@import url('https://fonts.googleapis.com/css2?family=Nunito&display=swap');
+@import "tailwindcss"; /* Importa todas as utilidades do TailwindCSS */
+
+/* ==============================
+   Paleta de cores personalizada
+   ============================== */
+@theme {
+  --color-dark: #0097b2;       /* Azul bem escuro */
+  --color-medium: #5ca3ff;     /* Azul médio */
+  --color-light: #b8f2e3;      /* Azul claro */
+  --color-accent: #49b0b6;     /* Azul/acento esverdeado */
+  --color-background:  #5ca3ff; /* Bege claro para fundo */
+}
+
+/* ==============================
+   Classes utilitárias de cores
+   ============================== */
+/* Fundo */
+.bg-dark { background-color: var(--color-dark); }
+.bg-medium { background-color: var(--color-medium); }
+.bg-light { background-color: var(--color-light); }
+.bg-accent { background-color: var(--color-accent); }
+.bg-background { background-color: var(--color-background); }
+
+/* Texto */
+.text-dark { color: var(--color-dark); }
+.text-medium { color: var(--color-medium); }
+.text-light { color: var(--color-light); }
+.text-accent { color: var(--color-accent); }
+
+/* Bordas */
+.border-dark { border-color: var(--color-dark); }
+.border-medium { border-color: var(--color-medium); }
+.border-light { border-color: var(--color-light); }
+.border-accent { border-color: var(--color-accent); }
+
+/* Ring (foco do Tailwind) */
+.ring-dark { --tw-ring-color: var(--color-dark); }
+.ring-medium { --tw-ring-color: var(--color-medium); }
+.ring-light { --tw-ring-color: var(--color-light); }
+.ring-accent { --tw-ring-color: var(--color-accent); }
+
+/* ==============================
+   Efeitos de hover (interação)
+   ============================== */
+/* Fundo ao passar mouse */
+.hover\:bg-dark:hover { background-color: var(--color-dark); }
+.hover\:bg-medium:hover { background-color: var(--color-medium); }
+.hover\:bg-light:hover { background-color: var(--color-light); }
+.hover\:bg-accent:hover { background-color: var(--color-accent); }
+
+/* Texto ao passar mouse */
+.hover\:text-dark:hover { color: var(--color-dark); }
+.hover\:text-medium:hover { color: var(--color-medium); }
+.hover\:text-light:hover { color: var(--color-light); }
+.hover\:text-accent:hover { color: var(--color-accent); }
+
+/* Bordas ao passar mouse */
+.hover\:border-dark:hover { border-color: var(--color-dark); }
+.hover\:border-medium:hover { border-color: var(--color-medium); }
+.hover\:border-light:hover { border-color: var(--color-light); }
+.hover\:border-accent:hover { border-color: var(--color-accent); }
+
+/* ==============================
+   Estilo global do body
+   ============================== */
+body {
+  font-family:  'Nunito', 'Nunito-sans'; /* Fontes */
+  font-weight: 700; /* Peso médio */
+  background: linear-gradient(
+    135deg,
+    var(--color-light) 0%,         /* Começa azul claro */
+    var(--color-medium) 50%,       /* Vai para azul médio */
+    var(--color-background) 100%   /* Termina bege claro */
+  );
+  min-height: 100vh; /* Sempre ocupa altura mínima da tela */
+}
+
+/* ==============================
+   Efeito Glassmorphism
+   ============================== */
+.glassmorphism {
+  background: rgba(255, 255, 255, 0.9);         /* Fundo branco translúcido */
+  backdrop-filter: blur(20px);                  /* Efeito de desfoque */
+  border-radius: 24px;                          /* Bordas arredondadas */
+  border: 1px solid rgba(255, 255, 255, 0.2);   /* Borda suave */
+  box-shadow: 0 25px 50px -12px rgba(0, 0, 0, 0.25); /* Sombra */
+}
+
+.glassmorphism-light {
+  background: rgba(255, 255, 255, 0.15);        /* Versão mais clara/transparente */
+  backdrop-filter: blur(16px);
+  border-radius: 16px;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+/* ==============================
+   Elementos decorativos de fundo
+   ============================== */
+.bg-decoration {
+  position: fixed;      /* Fica fixo na tela */
+  border-radius: 50%;   /* Forma circular */
+  filter: blur(40px);   /* Borrado */
+  opacity: 0.3;         /* Transparente */
+  z-index: -1;          /* Fica atrás de tudo */
+}
+
+/* Bolha 1 */
+.bg-decoration-1 {
+  width: 300px;
+  height: 300px;
+  background: var(--color-accent);
+  top: 10%;
+  left: 10%;
+  animation: float 6s ease-in-out infinite; /* Animação de flutuar */
+}
+
+/* Bolha 2 */
+.bg-decoration-2 {
+  width: 200px;
+  height: 200px;
+  background: var(--color-light);
+  top: 60%;
+  right: 15%;
+  animation: float 8s ease-in-out infinite reverse; /* Flutua ao contrário */
+}
+
+/* Bolha 3 */
+.bg-decoration-3 {
+  width: 150px;
+  height: 150px;
+  background: var(--color-medium);
+  bottom: 20%;
+  left: 20%;
+  animation: float 7s ease-in-out infinite;
+}
+
+/* ==============================
+   Animações
+   ============================== */
+@keyframes float {
+  0%, 100% { transform: translateY(0px); }   /* Posição inicial e final */
+  50% { transform: translateY(-20px); }      /* Sobe 20px no meio */
+}
+
+@keyframes fadeInUp {
+  from { opacity: 0; transform: translateY(30px); } /* Começa embaixo e invisível */
+  to { opacity: 1; transform: translateY(0); }      /* Termina visível e no lugar */
+}
+
+@keyframes fadeInLeft {
+  from { opacity: 0; transform: translateX(-30px); } /* Começa à esquerda e invisível */
+  to { opacity: 1; transform: translateX(0); }       /* Termina visível no lugar */
+}
+
+/* Classes utilitárias para aplicar animações */
+.animate-fade-in-up { animation: fadeInUp 0.6s ease-out; }
+.animate-fade-in-left { animation: fadeInLeft 0.6s ease-out; }
+
+/* ==============================
+   Botões
+   ============================== */
+/* Botão principal */
+.btn-primary {
+  background: var(--color-dark);
+  color: white;
+  transition: all 0.3s ease;
+}
+.btn-primary:hover {
+  background: var(--color-accent); /* Muda cor no hover */
+  transform: scale(1.02);          /* Leve zoom */
+}
+
+/* Botão fantasma (sem fundo) */
+.btn-ghost {
+  background: transparent;
+  color: var(--color-light);
+  transition: all 0.3s ease;
+}
+.btn-ghost:hover {
+  color: var(--color-medium); /* Texto muda de cor no hover */
+}
+
+/* ==============================
+   Campos de input
+   ============================== */
+.input-field {
+  background: rgba(255, 255, 255, 0.1);           /* Fundo translúcido */
+  border: 1px solid rgba(255, 255, 255, 0.2);     /* Borda suave */
+  transition: all 0.3s ease;
+}
+.input-field:focus {
+  background: rgba(255, 255, 255, 0.2);           /* Mais visível no foco */
+  border-color: var(--color-light);               /* Destacado em azul claro */
+  box-shadow: 0 0 0 3px rgba(36, 147, 191, 0.1);  /* Glow em volta */
+}
+
+/* ==============================
+   Página mobile de redirecionamento
+   ============================== */
+.mobile-redirect {
+  background: var(--color-dark); /* Fundo azul escuro */
+  color: white;                  /* Texto branco */
+  min-height: 100vh;             /* Ocupa tela inteira */
+  display: flex;                 /* Flexbox */
+  align-items: center;           /* Centraliza verticalmente */
+  justify-content: center;       /* Centraliza horizontalmente */
+  text-align: center;            /* Texto centralizado */
+  padding: 2rem;                 /* Espaçamento interno */
+}

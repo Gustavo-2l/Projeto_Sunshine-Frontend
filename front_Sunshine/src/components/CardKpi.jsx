@@ -1,0 +1,15 @@
+import { Icon } from "lucide-react";
+import React from "react";
+
+export const CardKpi = ({icon: Icon, value, label, color = "text-light"}) => {
+    return(
+        <div className="bg-white rounded-full shadow-md p-6 text-center">
+              <Icon  className={`w-8 h-8 ${color} mx-auto mb-2`} />
+              <h3 className="text-2xl font-bold text-dark">{value} 
+              </h3>
+              <p className="text-dark/70 ">{label}
+
+              </p>
+        </div>
+    );
+};
