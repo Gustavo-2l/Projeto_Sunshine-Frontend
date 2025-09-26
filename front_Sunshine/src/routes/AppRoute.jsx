@@ -24,6 +24,7 @@ import { ChatIa } from '../pages/ChatIa';
 import { Relatorios } from '../pages/Relatorio';
 import { Paciente } from '../pages/Pacientes';
 import { PacienteDetalhes } from '../pages/Pacientedetalhe';
+import { SessaoDetalhes } from '../pages/SessaoDetalhes';
 /* ==============================
    Componente de rota protegida
    ============================== */
@@ -92,6 +93,8 @@ export const AppRoutes = () => {
           </ProtectedRoute>
         }
       />
+
+<Route path="/sessao/:sessionId" element={<ProtectedRoute><SessaoDetalhes /></ProtectedRoute>} />
 
 
 

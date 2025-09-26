@@ -3,7 +3,7 @@
 // Ela se adapta para desktop (fixa na esquerda) e para mobile (abre/fecha com botão).
 // Também exibe informações do usuário autenticado e botões de navegação diferentes
 // dependendo do tipo de usuário (psicólogo ou paciente).
- 
+
 import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
@@ -19,51 +19,51 @@ import {
   MessageCircle,
   Bell
 } from 'lucide-react';
- 
+
 export const Sidebar = () => {
   // Estado que controla se o menu mobile está aberto ou fechado
   const [isOpen, setIsOpen] = useState(false);
- 
+
   // Pega usuário logado e função de logout do contexto
   const { user, logout } = useAuth();
- 
+
   // Hooks do React Router
   const navigate = useNavigate(); // navegação programática
   const location = useLocation(); // rota atual, útil para destacar link ativo
- 
+
   // 📌 Função para fazer logout
   const handleLogout = () => {
     logout();           // limpa o contexto
     navigate('/login'); // redireciona para página de login
   };
- 
+
   // 📌 Links de navegação, diferentes para psicólogo ou paciente
   const navLinks =
     user?.type === 'psicologo'
       ? [
-          { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
-          { to: '/solicitacoes', label: 'Solicitações', icon: Bell },
-          { to: '/pacientes', label: 'Pacientes', icon: Users },
-          { to: '/chat-ia', label: 'Chat IA', icon: MessageCircle },
-          { to: '/relatorios', label: 'Relatórios', icon: BarChart3 }
-        ]
+        { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
+        { to: '/solicitacoes', label: 'Solicitações', icon: Bell },
+        { to: '/pacientes', label: 'Pacientes', icon: Users },
+        { to: '/chat-ia', label: 'Chat IA', icon: MessageCircle },
+        { to: '/relatorios', label: 'Relatórios', icon: BarChart3 }
+      ]
       : [
-          { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
-          { to: '/agendamento', label: 'Solicitar Sessão', icon: Calendar }
-        ];
- 
+        { to: '/dashboard', label: 'Dashboard', icon: BarChart3 },
+        { to: '/agendamento', label: 'Solicitar Sessão', icon: Calendar }
+      ];
+
   // 📌 Função para verificar se o link é o atual
   const isActive = (path) => location.pathname === path;
- 
+
   return (
     <>
       {/* 📌 Botão Hamburguer para abrir/fechar menu em telas pequenas */}
-     <button
-  // Ao clicar, alterna o estado isOpen entre true e false
-  onClick={() => setIsOpen(!isOpen)}
- 
-  // Tailwind CSS classes
-  className="
+      <button
+        // Ao clicar, alterna o estado isOpen entre true e false
+        onClick={() => setIsOpen(!isOpen)}
+
+        // Tailwind CSS classes
+        className="
     lg:hidden       /* Oculta o botão em telas grandes (largura >= lg) */
     fixed           /* Posiciona o botão fixo em relação à tela */
     top-4           /* Distância do topo: 1rem (16px) */
@@ -75,14 +75,14 @@ export const Sidebar = () => {
     rounded-lg      /* Bordas arredondadas grandes */
     shadow-lg       /* Sombra grande para destaque */
   "
- 
-  // Atributo de acessibilidade, descrevendo o propósito do botão
-  aria-label="Menu"
->
-  {/* Alterna entre ícone de abrir (Menu) e fechar (X) */}
-  {isOpen ? <X size={24} /> : <Menu size={24} />}
-</button>
- 
+
+        // Atributo de acessibilidade, descrevendo o propósito do botão
+        aria-label="Menu"
+      >
+        {/* Alterna entre ícone de abrir (Menu) e fechar (X) */}
+        {isOpen ? <X size={24} /> : <Menu size={24} />}
+      </button>
+
       {/* 📌 Sidebar principal */}
       <div
         className={`fixed left-0 top-0 h-full w-64 bg-dark shadow-xl transform transition-transform duration-300 z-40 ${
@@ -90,7 +90,7 @@ export const Sidebar = () => {
           // Se fechada em mobile: sai da tela à esquerda (-translate-x-full)
           // Em telas grandes (lg:), sempre visível (translate-x-0)
           isOpen ? 'translate-x-0' : '-translate-x-full lg:translate-x-0'
-        }`}
+          }`}
       >
         <div className="flex flex-col h-full">
           {/* 📌 Logo da aplicação */}
@@ -102,7 +102,7 @@ export const Sidebar = () => {
               <p className="text-xs text-white/60">Sistema Psicológico</p>
             </div>
           </div>
- 
+
           {/* 📌 Informações do usuário logado */}
           <div className="p-6 border-b border-white/10">
             <div className="flex items-center space-x-3">
@@ -117,7 +117,7 @@ export const Sidebar = () => {
               </div>
             </div>
           </div>
- 
+
           {/* 📌 Navegação (lista de links) */}
           <nav className="flex-1 p-4">
             <ul className="space-y-2">
@@ -126,11 +126,10 @@ export const Sidebar = () => {
                   <Link
                     to={link.to}
                     // Estilo muda se o link for o ativo
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors ${
-                      isActive(link.to)
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors ${isActive(link.to)
                         ? 'bg-light text-dark' // ativo: fundo claro + texto branco
                         : 'text-white/70 hover:text-white hover:bg-white/10' // inativo: texto cinza, hover melhora contraste
-                    }`}
+                      }`}
                     onClick={() => setIsOpen(false)} // Fecha menu mobile ao clicar
                   >
                     {/* Ícone do link */}
@@ -142,7 +141,7 @@ export const Sidebar = () => {
               ))}
             </ul>
           </nav>
- 
+
           {/* 📌 Botão de Logout */}
           <div className="p-4 border-t border-white/10">
             <button
@@ -155,7 +154,7 @@ export const Sidebar = () => {
           </div>
         </div>
       </div>
- 
+
       {/* 📌 Overlay (fundo escuro) quando o menu mobile está aberto */}
       {isOpen && (
         <div
