@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 import { motion } from 'framer-motion'; 
 import { Shield, Zap, Users, Calendar, Activity, FileText } from 'lucide-react'; 
 import { Button } from '../components/Button'; 
-
+import logo from '../public/logo.png'; // ✅ import correto
 
 // Página inicial (Home)
 const Home = () => {
@@ -54,15 +54,14 @@ const Home = () => {
             {/* Logo centralizada */}
             <div className="w-40 h-40 md:w-36 md:h-36 lg:w-44 lg:h-44 rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl bg-white">
               <img 
-                src="/logo.png" 
+                src={logo}   // ✅ usa o import
                 alt="Sunshine" 
-                className="w-[200%] h-[200%] object-contain"
+                className="w-full h-full object-contain" // ✅ ocupa certinho o espaço
               />
             </div>
 
             {/* Nome do sistema */}
-            <h1 className="text-5xl md:text-6xl font-bold text-dark mb-6 font"
-            >
+            <h1 className="text-5xl md:text-6xl font-bold text-dark mb-6">
               Sunshine
             </h1>
 
@@ -79,7 +78,7 @@ const Home = () => {
             {/* Botões de ação (CTA) */}
             <div className="flex flex-row sm:flex-row text-4xl gap-4 justify-center">
               <Link to="/register">
-                <Button size="lg" className="max-w-lg sm:w-auto text-dark hover:text-light ">
+                <Button size="lg" className="max-w-lg sm:w-auto text-dark hover:text-light">
                   Participe Agora
                 </Button>
               </Link>

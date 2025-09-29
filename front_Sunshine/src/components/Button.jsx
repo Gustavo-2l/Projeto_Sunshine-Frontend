@@ -4,7 +4,7 @@ export const Button = ({
     variant = 'primary', // Define o estilo visual (padrão: primary)
     size = 'md', // Define o tamanho do botão (padrão: md)
     loading = false, // Indica se o botão está em estado de carregamento
-    className = '', // Permite adicionar classes extras personalizadas
+    className = 'bg-dark text-dark hover:', // Permite adicionar classes extras personalizadas
     ...props // Captura outras props (ex: onClick, type, etc.)
   }) => {
     // Classes base aplicadas em todos os botões
@@ -13,7 +13,7 @@ export const Button = ({
     // Estilos de acordo com o tipo de botão
     const variants = {
       primary: 'bg-light text-white hover:bg-accent focus:ring-light', // Botão principal
-      secondary: 'bg-transparent border border-light text-light hover:bg-accent hover:border-accent focus:ring-light' // Botão secundário
+      secondary: 'bg-transparent border border-light text-dark hover:bg-accent hover:border-accent focus:ring-light' // Botão secundário
     };
    
     // Tamanhos disponíveis para o botão

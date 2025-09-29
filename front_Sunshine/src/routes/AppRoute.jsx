@@ -20,11 +20,12 @@ import { Agendamento } from '../pages/Agendamento';
 // Páginas protegidas
 import { DashboardPsicologo } from '../pages/DashboardPsicologo';
 import { DashboardPaciente } from '../pages/DashboardPaciente';
-import { ChatIa } from '../pages/ChatIa';
+import { ChatIA} from '../pages/ChatIa';
 import { Relatorios } from '../pages/Relatorio';
 import { Paciente } from '../pages/Pacientes';
 import { PacienteDetalhes } from '../pages/Pacientedetalhe';
 import { SessaoDetalhes } from '../pages/SessaoDetalhes';
+import { Solicitacoes } from '../pages/Solicitacoes';
 /* ==============================
    Componente de rota protegida
    ============================== */
@@ -84,7 +85,7 @@ export const AppRoutes = () => {
       {/* Protegidas */}
       <Route path="/dashboard" element={<ProtectedRoute><Dashboard /></ProtectedRoute>} />
       <Route path="/agendamento" element={<ProtectedRoute><Agendamento /></ProtectedRoute>} />
-      <Route path="/chat-ia" element={<ProtectedRoute><ChatIa /></ProtectedRoute>} />
+      <Route path="/chat-ia" element={<ProtectedRoute><ChatIA /></ProtectedRoute>} />
       <Route path="/relatorios" element={<ProtectedRoute><Relatorios /></ProtectedRoute>} />
       <Route path="/pacientes" element={<ProtectedRoute><Paciente /></ProtectedRoute>} />
       <Route path="pacientes/:id"element={
@@ -95,6 +96,7 @@ export const AppRoutes = () => {
       />
 
 <Route path="/sessao/:sessionId" element={<ProtectedRoute><SessaoDetalhes /></ProtectedRoute>} />
+<Route path="/solicitacoes" element={<ProtectedRoute><Solicitacoes /></ProtectedRoute>} />
 
 
 

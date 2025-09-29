@@ -8,17 +8,8 @@ import { useState } from 'react';
 import { Link, useNavigate, useLocation } from 'react-router-dom';
 import { useAuth } from '../context/AuthContext';
 // Ícones importados da lib lucide-react
-import {
-  Menu,
-  X,
-  LogOut,
-  BarChart3,
-  Calendar,
-  User,
-  Users,
-  MessageCircle,
-  Bell
-} from 'lucide-react';
+import { Menu, X, LogOut, BarChart3, Calendar,User,Users, MessageCircle,Bell} from 'lucide-react';
+import logo from '../public/logo.png'; // ✅ import correto
 
 export const Sidebar = () => {
   // Estado que controla se o menu mobile está aberto ou fechado
@@ -96,7 +87,7 @@ export const Sidebar = () => {
           {/* 📌 Logo da aplicação */}
           <div className="flex items-center space-x-3 p-6 border-b border-white/10">
             {/* Logo com cantos arredondados */}
-            <img src="/logo.png" alt="Lunysse" className="w-10 h-10 rounded-lg" />
+            <img src={logo} alt="Sunshine" className="w-10 h-10 rounded-lg" />
             <div>
               <span className="text-xl font-bold text-white">Sunshine</span>
               <p className="text-xs text-white/60">Sistema Psicológico</p>

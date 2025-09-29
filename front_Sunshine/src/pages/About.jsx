@@ -2,7 +2,7 @@
 import { Link } from 'react-router-dom'; // Usado para navegação entre páginas sem recarregar o site
 import { Button } from '../components/Button'; // Importa um botão reutilizável
 import { Heart, Sun, Target, Award, Users, Brain, Shield, Zap, Calendar, Activity, FileText } from 'lucide-react'; // Biblioteca de ícones SVG
-
+import logo from '../public/logo.png'; // ✅ import correto
 // Componente funcional "About"
 const About = () => {
   // Array que define os valores da empresa/plataforma
@@ -81,7 +81,7 @@ const About = () => {
         <div className="max-w-4xl mx-auto">
           {/* Logo centralizado */}
           <div className="w-40 h-40 bg-white rounded-full flex items-center justify-center mx-auto mb-8 shadow-xl">
-            <img src="/logo.png" alt="Lunysse" className="w-[200%] h-[200%] object-contain rounded-2xl  " />
+            <img src={logo} alt="Sunshine" className="w-[200%] h-[200%] object-contain rounded-2xl  " />
           </div>
           <div className="bg-dark/70 backdrop-blur-md rounded-4xl p-16 border border-white/20 shadow-xl ">
           <h1 className="text-5xl md:text-6xl font-bold text-light mb-8">Sobre o Sunshine</h1>

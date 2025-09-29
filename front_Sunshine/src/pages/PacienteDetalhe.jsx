@@ -48,9 +48,9 @@ const PatientInfo = ({ patient }) => {
                                 <p className="text-sm text-dark/60">{label}
                                 </p>
  
-                                {href ? (<a href={href} className="font-semibold text-dark/60 hover:text-light transition-colors">{value}</a>) :
+                                {href ? (<a href={href} className="font-semibold text-dark hover:text-accent transition-colors">{value}</a>) :
                                     isStatus ? (
-                                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium ${value === 'ativo' || value === 'em tratamento' ? 'bg-green-400 text-dark/70' : 'bg-red-400 text-dark/70'}`}>
+                                        <span className={`inline-block px-2 py-1 rounded-full text-xs font-medium text-light ${value === 'ativo' || value === 'em tratamento' ? 'bg-light text-dark' : 'bg-dark text-light'}`}>
                                             {value}
                                         </span>
                                     ) : (
@@ -147,7 +147,7 @@ const Header = ({ onBack, title }) => (
             <Clock className="w-5 h-5" />
             Histórico de Sessões
           </h3>
-          <Button onClick={onShowForm} className="flex items-center gap-2">
+          <Button onClick={onShowForm} className="flex items-center gap-2 text-dark hover:text-light  hover:scale-105 active:scale-95">
             <Plus className="w-4 h-4" />
             Nova Sessão
           </Button>
@@ -188,7 +188,7 @@ const Header = ({ onBack, title }) => (
                     value={session.status}
                     onChange={(e) => onStatusUpdate(session.id, e.target.value)}
                     disabled={updatingSessions.has(session.id)}
-                    className="px-2 py-1 text-xs font-medium border-0 rounded-full focus:ring-2 focus:ring-light bg-blue-100 text-blue-800"
+                    className="px-2 py-1 text-xs font-medium border-0 rounded-full focus:ring-2 focus:ring-light bg-blue-100 text-dark"
                   >
                     <option value="agendado">Agendado</option>
                     <option value="iniciado">Iniciado</option>
@@ -310,7 +310,7 @@ const Header = ({ onBack, title }) => (
     if (!patient) return null;
  
     return (
-      <div className="space-y-6">
+      <div className="space-y-6 text-dark">
         <Header onBack={() => navigate('/pacientes')} title="Detalhes do Paciente" />
         <PatientInfo patient={patient} />
         <SessionsCard

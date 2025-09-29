@@ -1,7 +1,7 @@
 import { useState, useEffect, useCallback } from 'react';
+import { Calendar, Users, Bell, CheckCheck } from 'lucide-react';
 import { useAuth } from '../context/AuthContext';
 import { mockApi } from '../services/mockApi';
-import { Calendar, Users, Bell, CheckCheck } from 'lucide-react';
 import { CardKpi } from '../components/CardKpi';
 import { AppointmentCard } from '../components/AppointmentCard';
 
@@ -11,7 +11,16 @@ export const DashboardPsicologo = () => {
   const [patients, setPatients] = useState([]);
   const [requests, setRequests] = useState([]);
   const [loading, setLoading] = useState(true);
-  const [searchTerm, setSearchTerm] = useState(''); 
+  const [searchTerm, setSearchTerm] = useState('');
+  const [debouncedSearch, setDebouncedSearch] = useState('');
+
+  // Debounce para melhorar performance
+  useEffect(() => {
+    const handler = setTimeout(() => {
+      setDebouncedSearch(searchTerm);
+    }, 300); // 300ms de atraso
+    return () => clearTimeout(handler);
+  }, [searchTerm]);
 
   const loadData = useCallback(async () => {
     try {
@@ -38,7 +47,6 @@ export const DashboardPsicologo = () => {
     const handleFocus = () => loadData();
     window.addEventListener('focus', handleFocus);
     const interval = setInterval(loadData, 5000);
-
     return () => {
       window.removeEventListener('focus', handleFocus);
       clearInterval(interval);
@@ -52,7 +60,6 @@ export const DashboardPsicologo = () => {
       </div>
     );
   }
-
 
   const today = new Date();
   today.setHours(0, 0, 0, 0);
@@ -85,11 +92,11 @@ export const DashboardPsicologo = () => {
   const isNewPsychologist =
     totalPatients === 0 && appointments.length === 0 && requests.length === 0;
 
-
+  // ===== FILTRO DE PACIENTES COM DEBOUNCE =====
   const filteredAppointments = upcomingAppointments.filter(apt => {
     const patient = patients.find(p => p.id === apt.patientId);
     if (!patient) return false;
-    return patient.name.toLowerCase().includes(searchTerm.toLowerCase());
+    return patient.name.toLowerCase().includes(debouncedSearch.toLowerCase());
   });
 
   return (
@@ -121,27 +128,13 @@ export const DashboardPsicologo = () => {
 
       {/* KPIs */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <CardKpi icon={Users} value={totalPatients} label="Pacientes Ativos" />
-        <CardKpi
-          icon={Calendar}
-          value={todayAppointments.length}
-          label="Sessões Hoje"
-          color="text-accent"
-        />
-        <CardKpi
-          icon={CheckCheck}
-          value={completedSessions}
-          label="Sessões Concluídas"
-          color="text-medium"
-        />
-        <CardKpi
-          icon={Bell}
-          value={pendingRequests}
-          label="Solicitações Pendentes"
-        />
+        <CardKpi icon={Users} value={totalPatients} label="Pacientes Ativos" color='text-dark' />
+        <CardKpi icon={Calendar} value={todayAppointments.length} label="Sessões Hoje" color="text-dark" />
+        <CardKpi icon={CheckCheck} value={completedSessions} label="Sessões Concluídas" color="text-medium" />
+        <CardKpi icon={Bell} value={pendingRequests} label="Solicitações Pendentes" color='text-dark' />
       </div>
 
-     
+      {/* Input de busca */}
       {!isNewPsychologist && (
         <div className="mt-4">
           <input
@@ -156,20 +149,18 @@ export const DashboardPsicologo = () => {
 
       {/* Próximos Agendamentos */}
       {!isNewPsychologist && (
-        <div className="bg-white rounded-lg shadow-md p-6 mt-4">
-          <h2 className="text-xl font-semibold text-dark mb-4">
+        <div className="bg-white rounded-full shadow-md p-12 justify-center mt-2">
+          <h2 className="text-xl font-semibold text-dark">
             Próximos Agendamentos
           </h2>
           {filteredAppointments.length === 0 ? (
             <div className="text-center py-8">
               <Calendar className="w-16 h-16 text-dark/30 mx-auto mb-4" />
-              <p className="text-dark/70 mb-2">
-                Nenhum agendamento futuro encontrado.
-              </p>
+              <p className="text-dark/70 mb-2">Nenhum agendamento futuro encontrado.</p>
               <p className="text-sm text-dark/50">
                 {totalPatients === 0
                   ? 'Você ainda não possui pacientes cadastrados.'
-                  : 'Todos os agendamentos estão em dia!'}
+                  : 'Todos os agendamentos estão em dia!!!'}
               </p>
             </div>
           ) : (

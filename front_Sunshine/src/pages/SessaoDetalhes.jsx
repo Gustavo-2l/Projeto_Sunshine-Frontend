@@ -77,33 +77,33 @@ export const SessaoDetalhes = () => {
   const currentStatus = statusOptions.find(s => s.value === session.status);
 
   return (
-    <div className="space-y-6">
+    <div className="space-y-6 font-nunito">
       {/* Header */}
       <div className="flex items-center justify-between">
         <div className="flex items-center gap-4">
           <button
             onClick={() => navigate(`/pacientes/${patient.id}`)}
-            className="flex items-center gap-2 bg-white text-light hover:bg-gray-50 hover:scale-105 active:scale-95 border border-gray-200 px-4 py-2 rounded-lg font-medium transition-all duration-200 shadow-sm hover:shadow-md group"
+            className="flex items-center gap-2 bg-dark text-light hover:bg-gray-50 hover:scale-105 active:scale-95 border border-gray-200 px-4 py-2 rounded-full font-medium transition-all duration-200 shadow-sm hover:shadow-md group"
           >
             <ArrowLeft size={20} className="transition-transform duration-200 group-hover:-translate-x-1" />
             Voltar
           </button>
-          <h1 className="text-3xl font-bold text-white">Detalhes da Sessão</h1>
+          <h1 className="text-3xl font-bold text-dark">Detalhes da Sessão</h1>
         </div>
 
         <div className="flex items-center gap-3">
           {!editing ? (
-            <Button onClick={() => setEditing(true)} className="flex items-center gap-2">
+            <Button onClick={() => setEditing(true)} className="flex items-center gap-2 text-dark hover:text-light hover:scale-105 active:scale-95">
               <Edit3 size={16} />
               Editar
             </Button>
           ) : (
             <div className="flex gap-2">
-              <Button onClick={handleSave} className="flex items-center gap-2">
+              <Button onClick={handleSave} className="flex items-center gap-2 text-dark hover:text-light hover:scale-105 active:scale-95">
                 <Save size={16} />
                 Salvar
               </Button>
-              <Button variant="secondary" onClick={handleCancel} className="flex items-center gap-2">
+              <Button variant="secondary" onClick={handleCancel} className="flex items-center gap-2 hover:scale-105 active:scale-95">
                 <X size={16} />
                 Cancelar
               </Button>
@@ -113,7 +113,7 @@ export const SessaoDetalhes = () => {
       </div>
 
       {/* Informações da Sessão */}
-      <Card>
+      <Card className="rounded-2xl">
         <div className="space-y-6">
           <div className="flex items-center justify-between">
             <div>
@@ -144,7 +144,7 @@ export const SessaoDetalhes = () => {
             <div className="flex items-center gap-3">
               <User className="w-5 h-5 text-dark/60" />
               <div>
-                <p className="text-sm text-dark/60">Paciente</p>
+                <p className="text-sm text-dark/60">Paciente:</p>
                 <p className="font-semibold text-dark">{patient.name}</p>
               </div>
             </div>
@@ -152,7 +152,7 @@ export const SessaoDetalhes = () => {
             <div className="flex items-center gap-3">
               <Calendar className="w-5 h-5 text-dark/60" />
               <div>
-                <p className="text-sm text-dark/60">Data e Hora</p>
+                <p className="text-sm text-dark/60">Data e Hora:</p>
                 <p className="font-semibold text-dark">
                   {new Date(session.date).toLocaleDateString('pt-BR')} às {session.time}
                 </p>
@@ -162,7 +162,7 @@ export const SessaoDetalhes = () => {
             <div className="flex items-center gap-3">
               <Clock className="w-5 h-5 text-dark/60" />
               <div>
-                <p className="text-sm text-dark/60">Duração</p>
+                <p className="text-sm text-dark/60">Duração:</p>
                 <p className="font-semibold text-dark">{session.duration} minutos</p>
               </div>
             </div>
@@ -171,7 +171,7 @@ export const SessaoDetalhes = () => {
       </Card>
 
       {/* Anotações Rápidas */}
-      <Card>
+      <Card className="rounded-2xl">
         <div className="space-y-4">
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-dark" />
@@ -183,10 +183,10 @@ export const SessaoDetalhes = () => {
               value={editNotes}
               onChange={(e) => setEditNotes(e.target.value)}
               placeholder="Adicione anotações rápidas sobre a sessão..."
-              className="w-full h-24 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light focus:border-transparent resize-none"
+              className="w-full h-24 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light focus:border-transparent resize-none font-nunito"
             />
           ) : (
-            <div className="bg-white/50 p-4 rounded-lg min-h-[100px]">
+            <div className="bg-white/50 p-4 rounded-lg min-h-[100px] font-nunito">
               {session.notes ? (
                 <p className="text-dark leading-relaxed">{session.notes}</p>
               ) : (
@@ -198,11 +198,11 @@ export const SessaoDetalhes = () => {
       </Card>
 
       {/* Relatório Completo */}
-      <Card>
-        <div className="space-y-4">
+      <Card className="rounded-2xl">
+        <div className="space-y-4 font-nunito">
           <div className="flex items-center gap-2">
             <FileText className="w-5 h-5 text-dark" />
-            <h3 className="text-xl font-bold text-dark">Relatório Completo da Sessão</h3>
+            <h3 className="text-xl text-dark font-bold">Relatório Completo da Sessão</h3>
           </div>
 
           {editing ? (
@@ -210,12 +210,12 @@ export const SessaoDetalhes = () => {
               value={editReport}
               onChange={(e) => setEditReport(e.target.value)}
               placeholder="Relatório detalhado da sessão..."
-              className="w-full h-64 p-3 border border-gray-300 rounded-lg focus:ring-2 focus:ring-light focus:border-transparent resize-none font-mono text-sm"
+              className="w-full h-64 p-3 border border-gray-300 rounded-2xl focus:ring-2 focus:ring-light focus:border-transparent resize-none font-nunito text-sm"
             />
           ) : (
-            <div className="bg-white/50 p-4 rounded-lg min-h-[300px]">
+            <div className="bg-white/50 p-4 rounded-2xl min-h-[300px]">
               {session.fullReport ? (
-                <pre className="text-dark leading-relaxed whitespace-pre-wrap font-sans">
+                <pre className="text-dark leading-relaxed whitespace-pre-wrap font-nunito">
                   {session.fullReport}
                 </pre>
               ) : (

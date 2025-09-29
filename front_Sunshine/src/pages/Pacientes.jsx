@@ -1,17 +1,17 @@
 import { useEffect, useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { useAuth } from "../context/AuthContext";
-import { mockApi } from "../services/mockApi"; // removi patients
+import { mockApi } from "../services/mockApi";
 import { Card } from "../components/Card";
 import { LoadingSpinner } from "../components/LoadingSpinner";
 import { Users, User, Mail, Phone } from "lucide-react";
- 
+
 export const Paciente = () => {
   const { user } = useAuth();
   const navigate = useNavigate();
   const [patients, setPatients] = useState([]);
   const [loading, setLoading] = useState(true);
- 
+
   const loadPatients = async () => {
     setLoading(true);
     try {
@@ -24,28 +24,28 @@ export const Paciente = () => {
       setLoading(false);
     }
   };
- 
+
   useEffect(() => {
     loadPatients();
   }, [user.id]);
- 
+
   useEffect(() => {
     const handleFocus = () => loadPatients();
     window.addEventListener("focus", handleFocus);
     return () => window.removeEventListener("focus", handleFocus);
   }, []);
- 
+
   if (loading) return <LoadingSpinner size="lg" />;
- 
+
   return (
     <div className="space-y-6">
       <div className="flex items-center gap-3">
-        <Users className="w-8 h-8 text-white" />
-        <h1 className="text-3xl font-bold text-white">
+        <Users className="w-8 h-8 text-dark" />
+        <h1 className="text-3xl font-bold text-dark">
           Meus Pacientes: {patients.length} Pacientes
         </h1>
       </div>
- 
+
       <div className="grid gap-6">
         {patients.length === 0 ? (
           <Card className="text-center py-12">
@@ -62,7 +62,7 @@ export const Paciente = () => {
             <Card
               key={patient.id}
               onClick={() => navigate(`/pacientes/${patient.id}`)}
-              className="cursor-pointer hover:shadow-lg transition-shadow bg-white"
+              className="cursor-pointer hover:shadow-lg transition-shadow bg-white rounded-full"
             >
               <div className="space-y-3">
                 {/* Cabeçalho */}
@@ -77,28 +77,30 @@ export const Paciente = () => {
                     <p className="text-sm text-dark/60">Paciente: #{patient.id}</p>
                   </div>
                 </div>
- 
-                {/* Informações extras */}
-                <div><strong>Idade:</strong> {patient.age} anos</div>
-                <div><strong>Total de Sessões:</strong> {patient.totalSessions}</div>
-                <div><strong>Data de Nascimento:</strong> {patient.birthDate}</div>
-                <div>
-                  <strong>Status:</strong>{" "}
-                  <span
-                    className={
-                      patient.status === "Ativo"
-                        ? "text-green-600 font-semibold"
-                        : "text-blue-600 font-semibold"
-                    }
-                  >
-                    {patient.status}
-                  </span>
-                </div>
-                <div className="flex items-center gap-2">
-                  <Phone className="w-4 h-4" /> {patient.phone}
-                </div>
-                <div className="flex items-center gap-2">
-                  <Mail className="w-4 h-4" /> {patient.email}
+
+                {/* Informações extras em grid */}
+                <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 gap-y-3 text-dark/80 mt-4">
+                  <div><strong>Idade:</strong> {patient.age} anos</div>
+                  <div><strong>Total de Sessões:</strong> {patient.totalSessions}</div>
+                  <div><strong>Data de Nascimento:</strong> {patient.birthDate}</div>
+                  <div>
+                    <strong>Status:</strong>{" "}
+                    <span
+                      className={
+                        patient.status === "Ativo"
+                          ? "text-green-600 font-semibold"
+                          : "text-blue-600 font-semibold"
+                      }
+                    >
+                      {patient.status}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Phone className="w-4 h-4 text-accent" />Telefone:{patient.phone}
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Mail className="w-4 h-4 text-accent" /> E-mail:{patient.email}
+                  </div>
                 </div>
               </div>
             </Card>

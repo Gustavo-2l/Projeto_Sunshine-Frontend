@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Menu, X } from "lucide-react";
-
+import logo from '../public/logo.png'; // ✅ import correto
 export const PublicNavbar = () => {
   const [isOpen, setIsOpen] = useState(false);
   const location = useLocation();
@@ -22,7 +22,7 @@ export const PublicNavbar = () => {
           <div className="flex items-center space-x-3 md:space-x-4">
             <div className="bg-white p-2 rounded-full shadow-lg flex items-end justify-end">
               <img
-                src="/logo.png"
+                src={logo}
                 alt="logotipo site sunshine"
                 className="w-[150%] h-[150%] md:w-12 md:h-12"
               />

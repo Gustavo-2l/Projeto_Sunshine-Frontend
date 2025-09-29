@@ -56,11 +56,11 @@ export const Relatorios = () => {
       ) : (
 <>
           {/* KPIs */}
-<div className="grid grid-cols-1 md:grid-cols-4 gap-4">
+<div className="grid grid-cols-1 md:grid-cols-4 gap-4 rounded-full">
 <Card className="text-center">
-<Users className="w-8 h-8 text-accent mx-auto mb-2" />
+<Users className="w-8 h-8 text-accent mx-auto mb-2 rounded-b-full" />
 <h3 className="text-2xl font-bold text-dark">{stats.activePatients}</h3>
-<p className="text-dark/70 text-sm">Pacientes Ativos</p>
+<p className="text-dark/70 text-sm ">Pacientes Ativos</p>
 </Card>
  
             <Card className="text-center">

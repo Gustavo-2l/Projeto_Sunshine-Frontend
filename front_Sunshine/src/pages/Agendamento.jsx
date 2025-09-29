@@ -324,38 +324,30 @@ export const Agendamento = () => {
         {/* ===== ÁREA DE BOTÕES ===== */}
         {/* LAYOUT FLEXÍVEL: Botões lado a lado com espaçamento igual */}
         {/* gap-4: espaçamento de 1rem entre botões */}
-        <div className="flex gap-4">
- 
-          {/* BOTÃO CANCELAR */}
-          {/* type="button": previne submit do formulário */}
-          {/* variant="secondary": estilo visual menos destacado */}
-          {/* onClick: navegação programática sem submit */}
-          {/* flex-1: ocupa metade do espaço disponível */}
-          {/* PORQUE: Sempre dar opção de sair sem salvar */}
-          <Button
-            type="button"
-            variant="secondary"
-            onClick={() => navigate('/dashboard')}  // Volta para dashboard
-            className="flex-1"
-          >
-            Cancelar
-          </Button>
- 
-          {/* BOTÃO ENVIAR */}
-          {/* type="submit": dispara evento onSubmit do form */}
-          {/* loading: mostra spinner e desabilita durante envio */}
-          {/* disabled: desabilita se campos obrigatórios estão vazios */}
-          {/* LÓGICA: !selectedPsychologist OR !description = botão desabilitado */}
-          {/* PORQUE: Previne envio de dados incompletos */}
-          <Button
-            type="submit"
-            loading={submitting}  // Estado de carregamento
-            className="flex-1"
-            disabled={!selectedPsychologist || !requestData.description}  // Validação visual
-          >
-            Enviar Solicitação
-          </Button>
-        </div>
+        <div className="flex gap-4 text-dark">
+
+{/* BOTÃO CANCELAR */}
+<Button
+  type="button"
+  variant="secondary"
+  onClick={() => navigate('/dashboard')}
+  className="flex-1  text-dark hover:text-light font-semibold rounded-full px-4 py-3 "
+>
+  Cancelar
+</Button>
+
+{/* BOTÃO ENVIAR */}
+<Button
+  type="submit"
+  loading={submitting}
+  className="flex-1 hover:text-light text-dark font-semibold rounded-full px-4 py-3 "
+  disabled={!selectedPsychologist || !requestData.description}
+>
+  Enviar Solicitação
+</Button>
+
+</div>
+
       </form>
     </Card>
     </div >

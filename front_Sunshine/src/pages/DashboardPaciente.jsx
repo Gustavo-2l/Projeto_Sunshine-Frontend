@@ -169,7 +169,7 @@ export const DashboardPaciente = () => {
       {/* Próximas Sessões */}
       <Card>
         <div className="flex items-center gap-2 mb-4">
-          <Calendar className="w-5 h-5 text-light" />
+          <Calendar className="w-5 h-5 text-dark" />
           <h2 className="text-xl font-semibold text-dark">Próximas Sessões</h2>
         </div>
 
@@ -177,7 +177,7 @@ export const DashboardPaciente = () => {
           <div className="text-center py-8">
             <p className="text-dark/70 mb-4">Você não tem sessões agendadas.</p>
             <Link to="/agendamento">
-              <Button>
+              <Button className='text-dark hover:text-light text-lg'>
                 {hasHistory ? 'Solicitar novo psicólogo' : 'Solicitar ser paciente'}
               </Button>
             </Link>
