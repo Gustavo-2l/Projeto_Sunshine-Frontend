@@ -41,7 +41,7 @@ export const Paciente = () => {
     <div className="space-y-6">
       <div className="flex items-center gap-3">
         <Users className="w-8 h-8 text-dark" />
-        <h1 className="text-3xl font-bold text-dark">
+        <h1 className="text-3xl font-bold text-white">
           Meus Pacientes: {patients.length} Pacientes
         </h1>
       </div>

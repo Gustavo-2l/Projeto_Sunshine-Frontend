@@ -167,27 +167,29 @@ export const Solicitacoes = () => {
               {/* Botões */}
               {/* Botões */}
               {/* Botões */}
-              <div className="flex justify-between items-center">
-                {/* Rejeitar estilizado */}
-                <Button
-                  variant="ghost"
-                  onClick={() => handleRejectRequest(request.id)}
-                  loading={processingRequests.has(request.id)}
-                  className="flex items-center justify-center p-2 rounded-lg bg-orange-600 hover:bg-orange-700 text-white"
-                >
-                  <X className="w-5 h-5" />
-                </Button>
- 
-                {/* Aceitar destacado */}
-                <Button
-                  onClick={() => handleAcceptRequest(request.id, request)}
-                  loading={processingRequests.has(request.id)}
-                  className="flex-1 flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-dark py-3 px-6 rounded-full font-semibold"
-                >
-                  <CheckCircle className="w-5 h-5 text-dark" />
-                  Aceitar como Paciente
-                </Button>
-              </div>
+              <div className="flex gap-4">
+  {/* Rejeitar estilizado */}
+  <Button
+    variant="ghost"
+    onClick={() => handleRejectRequest(request.id)}
+    loading={processingRequests.has(request.id)}
+    className="flex-1 flex items-center justify-center gap-2 bg-orange-600 hover:bg-orange-700 text-white py-3 px-6 rounded-full font-semibold hover:scale-105 active:scale-95"
+  >
+    <X className="w-5 h-5" />
+    Recusar
+  </Button>
+
+  {/* Aceitar destacado */}
+  <Button
+    onClick={() => handleAcceptRequest(request.id, request)}
+    loading={processingRequests.has(request.id)}
+    className="flex-1 flex items-center justify-center gap-2 bg-green-600  text-dark hover:text-light py-3 px-6 rounded-full font-semibold hover:scale-105 active:scale-95"
+  >
+    <CheckCircle className="w-5 h-5" />
+    Aceitar como Paciente
+  </Button>
+</div>
+
  
  
             </Card>

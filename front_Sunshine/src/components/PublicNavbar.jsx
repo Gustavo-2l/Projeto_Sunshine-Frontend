@@ -28,7 +28,7 @@ export const PublicNavbar = () => {
               />
             </div>
             <div>
-              <span className="text-xl font-bold text-light md:text-2xl">
+              <span className="text-xl font-bold text-white md:text-2xl">
                 Sunshine
               </span>
               <p className="text-xs text-light font-medium hidden sm:block">
@@ -45,15 +45,15 @@ export const PublicNavbar = () => {
                 to={link.to}
                 className={`hidden sm:block font-medium transition-colors text-sm md:text-base ${
                   isActive(link.to)
-                    ? "text-light hover:text-light"
-                    : "text-light hover:text-light"
+                    ? "text-white hover:text-light"
+                    : "text-white hover:text-light"
                 }`}
               >
                 {link.label}
               </Link>
             ))}
             <Link to="/login">
-              <button className="bg-gradient-to-r from-accent to-dark text-light hover:text-light px-3 py-2 md:px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-300 text-sm md:text-base">
+              <button className="bg-gradient-to-r from-accent to-dark text-white hover:text-light px-3 py-2 md:px-4 rounded-lg font-medium hover:shadow-lg transition-all duration-300 text-sm md:text-base">
                 <span className="hidden sm:inline">Entrar</span>
                 <span className="sm:hidden">Login</span>
               </button>

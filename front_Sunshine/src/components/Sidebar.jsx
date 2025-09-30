@@ -87,7 +87,7 @@ export const Sidebar = () => {
           {/* 📌 Logo da aplicação */}
           <div className="flex items-center space-x-3 p-6 border-b border-white/10">
             {/* Logo com cantos arredondados */}
-            <img src={logo} alt="Sunshine" className="w-10 h-10 rounded-lg" />
+            <img src={logo} alt="Sunshine" className="w-10 h-10 rounded-full" />
             <div>
               <span className="text-xl font-bold text-white">Sunshine</span>
               <p className="text-xs text-white/60">Sistema Psicológico</p>
@@ -117,7 +117,7 @@ export const Sidebar = () => {
                   <Link
                     to={link.to}
                     // Estilo muda se o link for o ativo
-                    className={`flex items-center space-x-3 px-4 py-3 rounded-xl transition-colors ${isActive(link.to)
+                    className={`flex items-center space-x-3 px-4 py-3 rounded-full transition-colors ${isActive(link.to)
                         ? 'bg-light text-dark' // ativo: fundo claro + texto branco
                         : 'text-white/70 hover:text-white hover:bg-white/10' // inativo: texto cinza, hover melhora contraste
                       }`}
@@ -137,7 +137,7 @@ export const Sidebar = () => {
           <div className="p-4 border-t border-white/10">
             <button
               onClick={handleLogout}
-              className="flex items-center space-x-3 w-full px-4 py-3 text-white/70 hover:text-white hover:bg-white/10 rounded-xl transition-colors"
+              className="flex items-center space-x-3 w-full px-4 py-3 text-white/70 hover:text-white hover:bg-white/10 rounded-full transition-colors"
             >
               <LogOut size={20} />
               <span>Sair</span>

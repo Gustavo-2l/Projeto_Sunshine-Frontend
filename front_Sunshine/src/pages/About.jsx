@@ -84,7 +84,7 @@ const About = () => {
             <img src={logo} alt="Sunshine" className="w-[200%] h-[200%] object-contain rounded-2xl  " />
           </div>
           <div className="bg-dark/70 backdrop-blur-md rounded-4xl p-16 border border-white/20 shadow-xl ">
-          <h1 className="text-5xl md:text-6xl font-bold text-light mb-8">Sobre o Sunshine</h1>
+          <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">Sobre o Sunshine</h1>
             <p className="text-xl text-light leading-relaxed mb-6">
               Somos uma plataforma que une tecnologia e responsabilidade social...
             </p>
@@ -100,7 +100,7 @@ const About = () => {
         <div className="max-w-6xl mx-auto grid md:grid-cols-2 gap-8">
           {/* Missão */}
           <div className="bg-dark/70 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
-            <h2 className="text-2xl font-bold text-light mb-4">Objetivo</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Objetivo</h2>
             <p className="text-light leading-relaxed mb-4">
               Desenvolver uma solução digital que organize agendas...
             </p>
@@ -110,7 +110,7 @@ const About = () => {
           </div>
           {/* Visão */}
           <div className="bg-dark/70 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
-            <h2 className="text-2xl font-bold text-light mb-4">Nossa Visão</h2>
+            <h2 className="text-2xl font-bold text-white mb-4">Nossa Visão</h2>
             <p className="text-light leading-relaxed mb-4">
               Ser a principal plataforma de gestão de atendimentos psicológicos voluntários...
             </p>
@@ -124,11 +124,11 @@ const About = () => {
       {/* Seção Problemas e Soluções */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-light text-center mb-8">Problemas que Resolvemos</h2>
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Problemas que Resolvemos</h2>
           <div className="grid md:grid-cols-2 gap-8">
             {/* Lista de problemas */}
             <div className="bg-dark/70 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
-              <h3 className="text-xl font-semibold text-light mb-4">Desafios Identificados</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Desafios Identificados</h3>
               <ul className="space-y-3">
                 {problems.map((problem, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -141,7 +141,7 @@ const About = () => {
             </div>
             {/* Lista de soluções */}
             <div className="bg-dark/70 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
-              <h3 className="text-xl font-semibold text-light mb-4">Nossas Soluções</h3>
+              <h3 className="text-xl font-semibold text-white mb-4">Nossas Soluções</h3>
               <ul className="space-y-3">
                 {solutions.map((solution, index) => (
                   <li key={index} className="flex items-start space-x-3">
@@ -159,7 +159,7 @@ const About = () => {
       {/* Seção Funcionalidades */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-light text-center mb-8">Funcionalidades Principais</h2>
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Funcionalidades Principais</h2>
           <div className="grid md:grid-cols-2 gap-6">
             {features.map((feature, index) => (
               <div key={index} className="bg-dark/70 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg">
@@ -182,7 +182,7 @@ const About = () => {
       {/* Seção Valores */}
       <section className="py-12">
         <div className="max-w-6xl mx-auto">
-          <h2 className="text-3xl font-bold text-light text-center mb-8">Nossos Valores</h2>
+          <h2 className="text-3xl font-bold text-white text-center mb-8">Nossos Valores</h2>
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-12">
             {values.map((value, index) => (
               <div key={index} className="bg-dark/70 backdrop-blur-md rounded-2xl p-6 border border-white/20 shadow-lg text-center">

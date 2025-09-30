@@ -180,12 +180,12 @@ export const Agendamento = () => {
         {/* SEMÂNTICA: h1 indica o título mais importante da página */}
         {/* ESTILO: text-3xl (30px), font-bold (700), text-dark (cor customizada) */}
         {/* ESPAÇAMENTO: mb-2 (margin-bottom 0.5rem) */}
-        <h1 className="text-3xl font-bold text-dark mb-2">Solicitar ser Paciente</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Solicitar ser Paciente</h1>
  
         {/* SUBTÍTULO EXPLICATIVO */}
         {/* CONTRASTE: text-dark/70 = cor escura com 70% de opacidade */}
         {/* PORQUE: Hierarquia visual - menos importante que o título */}
-        <p className="text-dark/70">Escolha um psicólogo e descreva sua necessidade de atendimento</p>
+        <p className="text-white">Escolha um psicólogo e descreva sua necessidade de atendimento</p>
       </div>
  
       {/* ===== CARD PRINCIPAL COM FORMULÁRIO ===== */}

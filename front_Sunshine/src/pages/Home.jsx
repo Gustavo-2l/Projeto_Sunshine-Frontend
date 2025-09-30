@@ -61,17 +61,17 @@ const Home = () => {
             </div>
 
             {/* Nome do sistema */}
-            <h1 className="text-5xl md:text-6xl font-bold text-dark mb-6">
+            <h1 className="text-5xl md:text-6xl font-bold text-white mb-6">
               Sunshine
             </h1>
 
             {/* Subtítulo */}
-            <h2 className="text-2xl md:text-3xl font-medium text-dark mb-6">
+            <h2 className="text-2xl md:text-3xl font-medium text-light mb-6">
               Sistema de Agendamento Psicológico
             </h2>
 
             {/* Descrição principal */}
-            <p className="text-xl text-dark mb-8 max-w-3xl font-medium flex-col mx-auto leading-relaxed">
+            <p className="text-xl text-light mb-8 max-w-3xl font-medium flex-col mx-auto leading-relaxed">
               Um dia mais claro, uma mente mais limpa.
             </p>
 
@@ -106,7 +106,7 @@ const Home = () => {
               transition={{ duration: 0.6 }}
               viewport={{ once: true }}
             >
-              <h2 className="text-4xl md:text-5xl font-bold text-light mb-6">
+              <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Tecnologia a Serviço do Cuidado
               </h2>
               <p className="text-xl text-light max-w-3xl mx-auto">
@@ -145,7 +145,7 @@ const Home = () => {
             transition={{ duration: 0.6 }}
             viewport={{ once: true }}
           >
-            <h2 className="text-4xl md:text-5xl font-bold text-light mb-8">
+            <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               Faça Parte desta Transformação Social
             </h2>
             <p className="text-xl text-light mb-12 max-w-3xl mx-auto leading-relaxed">

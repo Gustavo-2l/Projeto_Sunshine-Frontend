@@ -80,7 +80,7 @@ export const ChatIA = () => {
   return (
     <div className="max-w-4xl mx-auto">
       <div className="mb-8">
-        <h1 className="text-3xl font-bold text-dark mb-2">Chat com IA</h1>
+        <h1 className="text-3xl font-bold text-white mb-2">Chat com IA</h1>
         <p className="text-white">Assistente especializada em psicologia para apoiar sua prática clínica</p>
       </div>
 
@@ -97,14 +97,14 @@ export const ChatIA = () => {
               }`}>
                 <div className={`w-8 h-8 rounded-full flex items-center justify-center ${
                   message.type === 'user' 
-                    ? 'bg-light text-white' 
+                    ? 'bg-dark text-white' 
                     : 'bg-accent text-white'
                 }`}>
                   {message.type === 'user' ? <User size={16} /> : <Bot size={16} />}
                 </div>
                 <div className={`rounded-2xl px-4 py-3 ${
                   message.type === 'user'
-                    ? 'bg-light text-white'
+                    ? 'bg-dark text-white'
                     : message.isError
                     ? 'bg-red-100 text-red-800 border border-red-200'
                     : 'bg-gray-100 text-gray-800'
@@ -161,7 +161,7 @@ export const ChatIA = () => {
             <Button
               onClick={handleSendMessage}
               disabled={!inputMessage.trim() || isLoading}
-              className="self-end"
+              className="self-end  bg-dark text-dark hover:text-light"
             >
               <Send size={18} />
             </Button>
@@ -178,7 +178,7 @@ export const ChatIA = () => {
 
       {/* Quick Actions */}
       <div className="mt-6">
-        <h3 className="text-lg font-semibold text-dark mb-3">Perguntas Sugeridas</h3>
+        <h3 className="text-lg font-semibold text-white mb-3">Perguntas Sugeridas</h3>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-3">
           {[
             'Como lidar com pacientes com ansiedade?',

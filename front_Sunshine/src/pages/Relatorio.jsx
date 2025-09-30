@@ -37,7 +37,7 @@ export const Relatorios = () => {
   return (
 <div className="space-y-6">
 <div className="text-center">
-<h1 className="text-3xl font-bold text-light mb-2">Relatórios e Analytics</h1>
+<h1 className="text-3xl font-bold text-white mb-2">Relatórios e Analytics</h1>
 <p className="text-light">Acompanhe métricas e indicadores da sua prática</p>
 </div>
  

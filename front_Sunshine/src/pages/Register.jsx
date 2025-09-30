@@ -97,6 +97,7 @@ export const Register = () => {
             onChange={handleInputChange("name")}
             placeholder="Seu nome"
             required
+            className="font-medium text-dark"
           />
           <Input
             label="E-mail"

@@ -5,7 +5,7 @@ export const Input = ({
   label,
   type = "text",
   error,
-  className = "",
+  className = "text-dark font-medium w-full ",
   id,
   ...props
 }) => {
@@ -20,12 +20,12 @@ export const Input = ({
       {label && (
         <label
           htmlFor={inputId}
-          className="block text-sm font-medium text-dark"
+          className="block text-sm font-medium text-dark w-full"
         >
           {label}
         </label>
       )}
-      <div className="relative">
+      <div className="relative w-full ">
         <input
           id={inputId}
           type={inputType}
