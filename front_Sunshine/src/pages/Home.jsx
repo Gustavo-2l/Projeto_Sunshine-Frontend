@@ -66,19 +66,19 @@ const Home = () => {
             </h1>
 
             {/* Subtítulo */}
-            <h2 className="text-2xl md:text-3xl font-medium text-light mb-6">
+            <h2 className="text-2xl md:text-3xl font-medium text-white mb-6">
               Sistema de Agendamento Psicológico
             </h2>
 
             {/* Descrição principal */}
-            <p className="text-xl text-light mb-8 max-w-3xl font-medium flex-col mx-auto leading-relaxed">
+            <p className="text-xl text-white mb-8 max-w-3xl font-medium flex-col mx-auto leading-relaxed">
               Um dia mais claro, uma mente mais limpa.
             </p>
 
             {/* Botões de ação (CTA) */}
             <div className="flex flex-row sm:flex-row text-4xl gap-4 justify-center">
               <Link to="/register">
-                <Button size="lg" className="max-w-lg sm:w-auto text-dark hover:text-light">
+                <Button size="lg" className="max-w-lg sm:w-auto text-dark hover:text-light hover:scale-105 active:scale-95">
                   Participe Agora
                 </Button>
               </Link>
@@ -87,7 +87,7 @@ const Home = () => {
                 e.preventDefault();
                 document.getElementById('features').scrollIntoView({ behavior: 'smooth' });
               }}>
-                <Button variant="secondary" size="lg" className="w-full sm:w-auto text-light hover:text-light">
+                <Button variant="secondary" size="lg" className="w-full sm:w-auto text-light hover:text-light hover:scale-105 active:scale-95">
                   Conhecer Recursos
                 </Button>
               </a>
@@ -109,7 +109,7 @@ const Home = () => {
               <h2 className="text-4xl md:text-5xl font-bold text-white mb-6">
                 Tecnologia a Serviço do Cuidado
               </h2>
-              <p className="text-xl text-light max-w-3xl mx-auto">
+              <p className="text-xl text-white max-w-3xl mx-auto">
                 Ferramentas inteligentes para organizar, acompanhar e potencializar atendimentos voluntários
               </p>
             </motion.div>
@@ -148,7 +148,7 @@ const Home = () => {
             <h2 className="text-4xl md:text-5xl font-bold text-white mb-8">
               Faça Parte desta Transformação Social
             </h2>
-            <p className="text-xl text-light mb-12 max-w-3xl mx-auto leading-relaxed">
+            <p className="text-xl text-white mb-12 max-w-3xl mx-auto leading-relaxed">
               Una tecnologia e responsabilidade social. Ajude a democratizar o acesso 
               à saúde mental através de uma plataforma pensada para o bem-estar coletivo.
             </p>
