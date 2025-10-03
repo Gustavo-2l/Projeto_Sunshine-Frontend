@@ -122,7 +122,7 @@ export const DashboardPsicologo = () => {
 
       {/* KPIs */}
       <motion.div
-        className="grid grid-cols-1 md:grid-cols-4 gap-6 "
+        className="grid grid-cols-1 md:grid-cols-2 gap-6 max-w-4xl mx-auto  p-6 space-y-5 space-x-5 "
         initial={{ opacity:0, y:20 }}
         animate={{ opacity:1, y:0 }}
         transition={{ duration:0.6 }}

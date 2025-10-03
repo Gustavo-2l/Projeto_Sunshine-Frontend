@@ -85,10 +85,10 @@ const About = () => {
           </div>
           <div className="bg-dark/70 backdrop-blur-md rounded-4xl p-16 border border-white/20 shadow-xl ">
           <h1 className="text-5xl md:text-6xl font-bold text-white mb-8">Sobre o Sunshine</h1>
-            <p className="text-xl text-light leading-relaxed mb-6">
+            <p className="text-xl text-white leading-relaxed mb-6">
               Somos uma plataforma que une tecnologia e responsabilidade social...
             </p>
-            <p className="text-xl text-light leading-relaxed">
+            <p className="text-xl text-white leading-relaxed">
               Desenvolvido especificamente para instituições que oferecem apoio psicológico gratuito...
             </p>
           </div>
@@ -101,20 +101,20 @@ const About = () => {
           {/* Missão */}
           <div className="bg-dark/70 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
             <h2 className="text-2xl font-bold text-white mb-4">Objetivo</h2>
-            <p className="text-light leading-relaxed mb-4">
+            <p className="text-white leading-relaxed mb-4">
               Desenvolver uma solução digital que organize agendas...
             </p>
-            <p className="text-light leading-relaxed text-sm">
+            <p className="text-white leading-relaxed text-sm">
               Nosso objetivo é democratizar o acesso a ferramentas tecnológicas...
             </p>
           </div>
           {/* Visão */}
           <div className="bg-dark/70 backdrop-blur-md rounded-3xl p-8 border border-white/20 shadow-xl">
             <h2 className="text-2xl font-bold text-white mb-4">Nossa Visão</h2>
-            <p className="text-light leading-relaxed mb-4">
+            <p className="text-white leading-relaxed mb-4">
               Ser a principal plataforma de gestão de atendimentos psicológicos voluntários...
             </p>
-            <p className="text-light leading-relaxed text-sm">
+            <p className="text-white leading-relaxed text-sm">
               Queremos transformar a forma como projetos sociais gerenciam seus atendimentos...
             </p>
           </div>
@@ -133,8 +133,8 @@ const About = () => {
                 {problems.map((problem, index) => (
                   <li key={index} className="flex items-start space-x-3">
                     {/* Bolinha decorativa */}
-                    <div className="w-2 h-2 bg-light rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-light text-sm">{problem}</span>
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-white text-sm">{problem}</span>
                   </li>
                 ))}
               </ul>
@@ -146,8 +146,8 @@ const About = () => {
                 {solutions.map((solution, index) => (
                   <li key={index} className="flex items-start space-x-3">
                     {/* Bolinha decorativa */}
-                    <div className="w-2 h-2 bg-light rounded-full mt-2 flex-shrink-0"></div>
-                    <span className="text-light text-sm">{solution}</span>
+                    <div className="w-2 h-2 bg-white rounded-full mt-2 flex-shrink-0"></div>
+                    <span className="text-white text-sm">{solution}</span>
                   </li>
                 ))}
               </ul>
@@ -191,7 +191,7 @@ const About = () => {
                   {value.icon}
                 </div>
                 <h3 className="text-lg font-semibold text-light mb-3">{value.title}</h3>
-                <p className="text-light text-sm leading-relaxed">{value.description}</p>
+                <p className="text-white text-sm leading-relaxed">{value.description}</p>
               </div>
             ))}
           </div>
